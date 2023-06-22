@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head>
+	<title>PCAP Analyzer</title>
+</head>
+
+<body>
+	<h1>PCAP Analyzer</h1>
+	<a href="/">Home</a>
+	<p>
+	A PCAP file is a record of network traffic observed on a system. Use this page to help analyze the PCAP you were given! It will pull out the interesting network traffic related to your mission.
+	</p>
+	<form method="post" action="/pcap" enctype="multipart/form-data">
+		<input type="file" id="pcap" name="pcap" />
+		<br />
+		<br />
+		<input type="submit" value="Analyze" />
+	</form>
+</body>

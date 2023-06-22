@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<head>
+	<title>Python Decompiler</title>
+</head>
+
+<body>
+	<h1>Python Decompiler</h1>
+	<a href="/">Home</a>
+	<p>
+	As you've learned, Python scripts can be compiled into .pyc files, which make them no longer human readable. This tool will let you convert that compiled code into a human-readable script.
+	</p>
+	<form method="post" action="/python" enctype="multipart/form-data">
+		<input type="file" id="pyc" name="pyc" />
+		<br />
+		<br />
+		<input type="submit" value="Decompile" />
+	</form>
+</body>

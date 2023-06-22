@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+	<title>PCAP Analyzer - Results</title>
+<style>
+.headers {
+	background: lightgray;
+	padding: 0.3em 1em 0.3em 1em;
+	width: fit-content;
+}
+</style>
+</head>
+
+<body>
+	<h1>PCAP Analyzer - Results</h1>
+	<a href="/">Home</a>
+	<p>
+	There were <b>2</b> HTTP requests recovered from this PCAP.
+	</p>
+	{% for sess in sessions %}
+	<p>
+		<hr style="3px solid #bbb" />
+		<h3>TCP Stream {{sess.num}}</h3>
+		<ul>
+			<li>Source: {{sess.src}}</li>
+			<li>Destination: {{sess.dst}}</li>
+			<li>Bytes Sent: {{sess.bytes_sent}}</li>
+			<li>Bytes Received: {{sess.bytes_recv}}</li>
+			{% if sess.req_url %}<li><a href="{{sess.req_url}}">Download HTTP request</a></li>{% endif %}
+			{% if sess.resp_url %}<li><a href="{{sess.resp_url}}">Download HTTP response</a></li>{% endif %}
+		</ul>
+		<h4>HTTP Request Headers</h4>
+		<div class="headers">
+			<pre>{{ sess.req_hdrs }}</pre>
+		</div>
+		<h4>HTTP Response Headers</h4>
+		<div class="headers">
+			<pre>{{ sess.resp_hdrs }}</pre>
+		</div>
+	</p>
+	{% endfor %}
+</body>
